@@ -3,30 +3,37 @@
 import time
 import pickle
 import os
+import json
 from pypresence import Presence
 
-discord_text = "nothing is happening"
+discord_data = {
+    "state": "...",
+    "details": "loading lite-xl plugin",
+    "die_now": "no"
+}
 waiting = False
 
 
-def load_data(cur_txt):
+def load_data(cur_dat):
     fp = open("discord_data.pickle", "rb")
     data = pickle.load(fp)
-    if data == "die_now":
+    data = json.loads(data)
+    if data["die_now"] != "no":
         exit()
-    if data != cur_txt:
+    if data != cur_dat:
         print("got new data!")
         print(data)
         return data
     else:
         print("data is the same :(")
         print(data)
-        return cur_txt
+        return cur_dat
 
 
-def reset_data():
+def reset_data(data):
+    data = json.dumps(data)
     fp = open("discord_data.pickle", "wb")
-    pickle.dump("loading discord plugin...", fp,)
+    pickle.dump(data, fp,)
     fp.close()
 
 
@@ -38,15 +45,16 @@ rpc.connect()
 start_time = time.time()
 rpc.update(start=start_time, state="loading discord plugin", large_image="lite-xl")
 
-reset_data()
+reset_data(discord_data)
 
 while True:
-    print("current discord text:", discord_text)
-    discord_text = load_data(discord_text)
+    print("current discord dta:", discord_data)
+    discord_data = load_data(discord_data)
     rpc.update(
         pid=os.getpid(),
         start=start_time,
-        state=discord_text,
+        state=discord_data["state"],
+        details=discord_data["details"],
         large_image="lite-xl"
     )
     time.sleep(15)  # discord sleep timeout

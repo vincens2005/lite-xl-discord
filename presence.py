@@ -4,18 +4,23 @@ import time
 import pickle
 import os
 import json
+import argparse
 from pypresence import Presence
 
 discord_data = {
     "state": "...",
-    "details": "loading lite-xl plugin",
+    "details": "loading discord plugin",
     "die_now": "no"
 }
 waiting = False
 
 
-def load_data(cur_dat):
-    fp = open("discord_data.pickle", "rb")
+parser = argparse.ArgumentParser()
+parser.add_argument("--pickle", dest="pickle")
+args = parser.parse_args()
+
+def load_data(cur_dat, pickle_file):
+    fp = open(pickle_file, "rb")
     data = pickle.load(fp)
     data = json.loads(data)
     if data["die_now"] != "no":
@@ -30,9 +35,9 @@ def load_data(cur_dat):
         return cur_dat
 
 
-def reset_data(data):
+def reset_data(data, pickle_file):
     data = json.dumps(data)
-    fp = open("discord_data.pickle", "wb")
+    fp = open(pickle_file, "wb")
     pickle.dump(data, fp,)
     fp.close()
 
@@ -45,11 +50,11 @@ rpc.connect()
 start_time = time.time()
 rpc.update(start=start_time, state="loading discord plugin", large_image="lite-xl")
 
-reset_data(discord_data)
+reset_data(discord_data, args.pickle)
 
 while True:
     print("current discord dta:", discord_data)
-    discord_data = load_data(discord_data)
+    discord_data = load_data(discord_data, args.pickle)
     rpc.update(
         pid=os.getpid(),
         start=start_time,

@@ -8,7 +8,6 @@ parser.add_argument("--details", dest="details")
 parser.add_argument("--die-now", dest="die_now")
 parser.add_argument("--pickle", dest="pickle")
 args = parser.parse_args()
-
 # communication setup:
 fp = open(args.pickle, "wb")
 json_args = json.dumps({

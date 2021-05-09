@@ -6,6 +6,7 @@ Inspired by [vscode rich presence](https://github.com/iCrawl/discord-vscode)
 # Installation
 ## prerequisites:
   `python3`, `pickle`, `argparse`, and `pypresence`
+
   only tested on Linux but should theoretically work on any os that works with lite and has these packages installed
 ## actual installation
 a) clone this repo in your lite-xl plugins folder

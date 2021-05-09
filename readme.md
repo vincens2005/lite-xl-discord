@@ -1,5 +1,7 @@
 # discord rich presence for [lite-xl](https://github.com/franko/lite-xl)
 Inspired by [vscode rich presence](https://github.com/iCrawl/discord-vscode)
+
+
 ![screenshot of the plugin on discord](screenshot_1.png)
 # Installation
 ## prerequisites:

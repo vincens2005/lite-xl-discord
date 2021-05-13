@@ -6,28 +6,57 @@ local config = require "core.config"
 -- function replacements:
 local quit = core.quit
 local restart = core.restart
-local status = {
-	filename = nil,
-	space = nil
-}
-core.log("discord plugin: starting python script")
-system.exec("python3 " .. USERDIR .. "/plugins/lite-xl-discord/presence.py --pickle=" .. USERDIR .. "/plugins/lite-xl-discord/discord_data.pickle")
+local status = {filename = nil, space = nil}
 
+core.log("discord plugin: starting python script")
+system.exec("python3 " .. USERDIR ..
+				            "/plugins/lite-xl-discord/presence.py --pickle=" .. USERDIR ..
+				            "/plugins/lite-xl-discord/discord_data.pickle")
+
+
+-- stolen from https://stackoverflow.com/questions/1426954/split-string-in-lua
+local function split_string(inputstr, sep)
+	if sep == nil then sep = "%s" end
+	local t = {}
+	for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
+		table.insert(t, str)
+	end
+	return t
+end
 
 local function tell_discord_to_stop()
-	local cmd = "python3 " .. USERDIR .. "/plugins/lite-xl-discord/update_presence.py --state='no' --details='no' --die-now='yes' --pickle=" .. USERDIR .. "/plugins/lite-xl-discord/discord_data.pickle"
+	local cmd = "python3 " .. USERDIR ..
+					            "/plugins/lite-xl-discord/update_presence.py --state='no' --details='no' --die-now='yes' --pickle=" ..
+					            USERDIR .. "/plugins/lite-xl-discord/discord_data.pickle"
 	-- core.log("running command ".. command)
 	core.log("stopping discord rpc...")
 	system.exec(cmd)
 end
 
 local function update_status()
-	local details = "editing file " .. core.active_view.doc.filename
+	local filename = "unsaved file"
+	-- return if doc isn't active
+	if not core.active_view.doc then
+		return
+	end
+
+	if core.active_view.doc.filename then
+		filename = core.active_view.doc.filename
+		filename = split_string(filename, "/")
+		filename = filename[#filename]
+	end
+
+
+	local details = "editing " .. filename
 	local dir = common.basename(core.project_dir)
-	local state = "in workspace " .. dir
-	status.filename = core.active_view.doc.filename
+	local state = "in " .. dir
+	status.filename = filename
 	status.space = dir
-	local cmd = "python3 " .. USERDIR .. "/plugins/lite-xl-discord/update_presence.py --state='" .. state .. "' --details='" .. details .. "' --die-now='no' --pickle=" .. USERDIR .. "/plugins/lite-xl-discord/discord_data.pickle"
+	local cmd = "python3 " .. USERDIR ..
+					            "/plugins/lite-xl-discord/update_presence.py --state='" ..
+					            state .. "' --details='" .. details ..
+					            "' --die-now='no' --pickle=" .. USERDIR ..
+					            "/plugins/lite-xl-discord/discord_data.pickle"
 	system.exec(cmd)
 end
 
@@ -43,9 +72,10 @@ end
 
 core.add_thread(function()
 	while true do
-		if not (common.basename(core.project_dir) == status.space and core.active_view.doc.filename == status.filename) then
-			update_status()
-		end
+		if not (common.basename(core.project_dir) == status.space and
+						core.active_view.doc.filename == status.filename) then
+							update_status()
+						end
 		coroutine.yield(config.project_scan_rate)
 	end
 end)
@@ -53,4 +83,4 @@ end)
 command.add("core.docview",
             {["discord-presence:stop-RPC"] = tell_discord_to_stop})
 command.add("core.docview", {["discord-presence:update-RPC"] = update_status})
--- core.project_dir
+

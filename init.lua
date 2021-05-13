@@ -36,9 +36,8 @@ end
 local function update_status()
 	local filename = "unsaved file"
 	-- return if doc isn't active
-	if not core.active_view.doc then
-		return
-	end
+	if not core.active_view then return end
+	if not core.active_view.doc then return end
 
 	if core.active_view.doc.filename then
 		filename = core.active_view.doc.filename
@@ -72,10 +71,14 @@ end
 
 core.add_thread(function()
 	while true do
+		-- skip loop if doc isn't active
+		if not core.active_view then goto continue end
+		if not core.active_view.doc then goto continue end
 		if not (common.basename(core.project_dir) == status.space and
 						core.active_view.doc.filename == status.filename) then
 							update_status()
-						end
+						end					
+		::continue::
 		coroutine.yield(config.project_scan_rate)
 	end
 end)

@@ -11,7 +11,7 @@ local status = {filename = nil, space = nil}
 core.log("discord plugin: starting python script")
 system.exec("python3 " .. USERDIR ..
 				            "/plugins/lite-xl-discord/presence.py --pickle=" .. USERDIR ..
-				            "/plugins/lite-xl-discord/discord_data.pickle")
+				            "/plugins/lite-xl-discord/discord_data.pickle --pidfile=" .. USERDIR .. "/plugins/lite-xl-discord/pidfile.pid")
 
 
 -- stolen from https://stackoverflow.com/questions/1426954/split-string-in-lua

@@ -17,11 +17,12 @@ waiting = False
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--pickle", dest="pickle")
+parser.add_argument("--pidfile", dest="pidfile")
 args = parser.parse_args()
 
 
 current_pid = str(os.getpid())
-pidfile = "presence_py.pid"
+pidfile = args.pidfile
 
 if os.path.isfile(pidfile):
     print("other instance is running. I will go commit die.")

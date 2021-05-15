@@ -8,11 +8,6 @@ local quit = core.quit
 local restart = core.restart
 local status = {filename = nil, space = nil}
 
-core.log("discord plugin: starting python script")
-system.exec("python3 " .. USERDIR ..
-				            "/plugins/lite-xl-discord/presence.py --pickle=" .. USERDIR ..
-				            "/plugins/lite-xl-discord/discord_data.pickle --pidfile=" .. USERDIR .. "/plugins/lite-xl-discord/pidfile.pid")
-
 
 -- stolen from https://stackoverflow.com/questions/1426954/split-string-in-lua
 local function split_string(inputstr, sep)
@@ -59,6 +54,14 @@ local function update_status()
 	system.exec(cmd)
 end
 
+local function start_rpc()
+	core.log("discord plugin: starting python script")
+	system.exec("python3 " .. USERDIR ..
+				            "/plugins/lite-xl-discord/presence.py --pickle=" .. USERDIR ..
+				            "/plugins/lite-xl-discord/discord_data.pickle --pidfile=" .. USERDIR .. "/plugins/lite-xl-discord/pidfile.pid")
+	update_status()
+end
+
 core.quit = function(force)
 	tell_discord_to_stop()
 	return quit(force)
@@ -77,7 +80,7 @@ core.add_thread(function()
 		if not (common.basename(core.project_dir) == status.space and
 						core.active_view.doc.filename == status.filename) then
 							update_status()
-						end					
+						end			
 		::continue::
 		coroutine.yield(config.project_scan_rate)
 	end
@@ -87,3 +90,6 @@ command.add("core.docview",
             {["discord-presence:stop-RPC"] = tell_discord_to_stop})
 command.add("core.docview", {["discord-presence:update-RPC"] = update_status})
 
+command.add("core.docview", {["discord-presence:start-RPC"] = start_rpc})
+
+start_rpc()

@@ -33,6 +33,8 @@ static void discord_error(int errcode, const char* message) {
 }
 
 static void init_discord() {
+	start_time = time(0);
+	printf("\nstarting rpc... \n");
 	DiscordEventHandlers handlers;
 	memset(&handlers, 0, sizeof(handlers));
 	handlers.ready = discord_ready;
@@ -42,16 +44,17 @@ static void init_discord() {
 	// handlers.spectateGame = handleDiscordSpectate;
 	// handlers.joinRequest = handleDiscordJoinRequest;
 	Discord_Initialize(APPLICATION_ID, &handlers, 1, NULL);
+	printf("\nrpc started.\n");
 }
 
 
-static void update_presence(char* state, char* details) {
+static void update_presence(char* state, char* details, char* large_image) {
 	DiscordRichPresence discordPresence;
 	memset(&discordPresence, 0, sizeof(discordPresence));
 	discordPresence.state = state;
 	discordPresence.details = details;
 	discordPresence.startTimestamp = start_time;
-	discordPresence.largeImageKey = "lite-xl";
+	discordPresence.largeImageKey = large_image;
 	discordPresence.instance = 0;
 	Discord_UpdatePresence(&discordPresence);
 }
@@ -61,10 +64,11 @@ int main(int argc, char* argv[]) {
 	
 	sleep(1);
 	
-	update_presence("this is a test", "for a C API");
+	update_presence("this is a test", "for a C API", "lite-xl");
 	
 	sleep(10);
 	
 	Discord_Shutdown();
+	printf("\nall done\n");
 	return 0;
 }

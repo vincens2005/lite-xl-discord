@@ -80,7 +80,7 @@ core.add_thread(function()
 		if not (common.basename(core.project_dir) == status.space and
 						core.active_view.doc.filename == status.filename) then
 							update_status()
-						end			
+						end
 		::continue::
 		coroutine.yield(config.project_scan_rate)
 	end

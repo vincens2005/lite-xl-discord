@@ -11,6 +11,8 @@
 #endif
 
 #include "discord_rpc.h"
+#include <lua.h>
+#include <lauxlib.h>
 
 static const char* APPLICATION_ID = "839231973289492541";
 static int64_t start_time;
@@ -48,7 +50,7 @@ static void init_discord() {
 }
 
 
-static void update_presence(char* state, char* details, char* large_image) {
+static void update_presence(const char* state, const char* details, const char* large_image) {
 	DiscordRichPresence discordPresence;
 	memset(&discordPresence, 0, sizeof(discordPresence));
 	discordPresence.state = state;
@@ -59,6 +61,42 @@ static void update_presence(char* state, char* details, char* large_image) {
 	Discord_UpdatePresence(&discordPresence);
 }
 
+// lua wrappers
+static int lua_update_presence(lua_State* L) {
+	const char* state = luaL_checkstring(L, 1);
+	const char* details = luaL_checkstring(L, 2);
+	const char* large_image = luaL_checkstring(L, 3);
+	update_presence(state, details, large_image);
+	lua_pushnil(L);
+	return 1;
+}
+
+static int lua_init_presence(lua_State* L) {
+	init_discord();
+	lua_pushnil(L);
+	return 1;
+}
+
+static int lua_shutdown(lua_State* L) {
+	Discord_Shutdown();
+	lua_pushnil(L);
+	return 1;
+}
+
+int luaopen_libnativefunc(lua_State* L) {
+	static const struct luaL_Reg libs [] = {
+				{"update", lua_update_presence},
+				{"init", lua_init_presence},
+				{"shutdown", lua_shutdown},
+				{NULL, NULL}
+	};
+	for (int i = 0; libs[i].name; i++) {
+		luaL_requiref(L, libs[i].name, libs[i].func, 1);
+	}
+	return 1;
+}
+
+/*
 int main(int argc, char* argv[]) {
 	init_discord();
 	
@@ -72,3 +110,4 @@ int main(int argc, char* argv[]) {
 	printf("\nall done\n");
 	return 0;
 }
+*/

@@ -1,0 +1,49 @@
+From a3ed63734afb5cb9e635f022345f4b12f9841609 Mon Sep 17 00:00:00 2001
+From: cukmekerb <cukmekerb@gmail.com>
+Date: Thu, 29 Jul 2021 11:47:08 -0700
+Subject: [PATCH] add -fPIE and -fPIC flags
+
+---
+ CMakeLists.txt                 |  2 ++
+ src/discord_register_linux.cpp | 12 ++++++------
+ 2 files changed, 8 insertions(+), 6 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 5dad9e9..c73006e 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -5,6 +5,8 @@ include(GNUInstallDirs)
+ 
+ option(BUILD_EXAMPLES "Build example apps" ON)
+ 
++set (CMAKE_CXX_FLAGS "-fPIE -fPIC")
++
+ # format
+ file(GLOB_RECURSE ALL_SOURCE_FILES
+     examples/*.cpp examples/*.h examples/*.c
+diff --git a/src/discord_register_linux.cpp b/src/discord_register_linux.cpp
+index dd92eea..dfc5340 100644
+--- a/src/discord_register_linux.cpp
++++ b/src/discord_register_linux.cpp
+@@ -42,12 +42,12 @@ extern "C" DISCORD_EXPORT void Discord_Register(const char* applicationId, const
+     }
+ 
+     const char* desktopFileFormat = "[Desktop Entry]\n"
+-                                   "Name=Game %s\n"
+-                                   "Exec=%s %%u\n" // note: it really wants that %u in there
+-                                   "Type=Application\n"
+-                                   "NoDisplay=true\n"
+-                                   "Categories=Discord;Games;\n"
+-                                   "MimeType=x-scheme-handler/discord-%s;\n";
++                                    "Name=Game %s\n"
++                                    "Exec=%s %%u\n" // note: it really wants that %u in there
++                                    "Type=Application\n"
++                                    "NoDisplay=true\n"
++                                    "Categories=Discord;Games;\n"
++                                    "MimeType=x-scheme-handler/discord-%s;\n";
+     char desktopFile[2048];
+     int fileLen = snprintf(
+       desktopFile, sizeof(desktopFile), desktopFileFormat, applicationId, command, applicationId);
+-- 
+2.32.0
+

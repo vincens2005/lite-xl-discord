@@ -16,6 +16,7 @@
 extern "C" {
 	#include <lua.h>
 	#include <lauxlib.h>
+	#include <lualib.h>
 }
 static const char* APPLICATION_ID = "839231973289492541";
 static int64_t start_time;
@@ -89,13 +90,14 @@ extern "C" {
 	
 	int luaopen_discord(lua_State* L) {
 		static const struct luaL_Reg libs [] = {
-					{"update", lua_update_presence},
-					{"init", lua_init_presence},
-					{"shutdown", lua_shutdown},
+					{"discord_update", lua_update_presence},
+					{"discord_init", lua_init_presence},
+					{"discord_shutdown", lua_shutdown},
 					{NULL, NULL}
 		};
+		
 		for (int i = 0; libs[i].name; i++) {
-			luaL_requiref(L, libs[i].name, libs[i].func, 1);
+			lua_register(L, libs[i].name, libs[i].func);
 		}
 		return 1;
 	}

@@ -5,4 +5,4 @@ default:
 	rm build/discord.o
 	cp test.lua build/
 	cp init.lua build/
-
+	cp fsutil.lua build/

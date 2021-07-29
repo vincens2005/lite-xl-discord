@@ -3,7 +3,21 @@ local core = require "core"
 local command = require "core.command"
 local common = require "core.common"
 local config = require "core.config"
-require "plugins.lite-xl-discord.discord"
+local fs = require "plugins.lite-xl-discord.fsutil"
+
+-- stolen from lintplus
+local function load_discord_lib()
+  local dir_sep, path_sep, sub = package.config:match("(.-)\n(.-)\n(.-)\n")
+  local this_file = debug.getinfo(1, 'S').source
+
+  local this_dir = fs.parent_directory(this_file):match("[@=](.*)")
+  package.cpath =
+    package.cpath .. path_sep .. this_dir .. dir_sep .. sub .. ".so"
+
+  return require "discord"
+end
+
+load_discord_lib()
 -- function replacements:
 local quit = core.quit
 local restart = core.restart

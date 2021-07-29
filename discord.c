@@ -12,12 +12,8 @@
 
 #include "discord_rpc.h"
 
-// lua fails unless you do that
-extern "C" {
-	#include <lua.h>
-	#include <lauxlib.h>
-	#include <lualib.h>
-}
+#include "include/lua/src/lua.hpp"
+
 static const char* APPLICATION_ID = "839231973289492541";
 static int64_t start_time;
 
@@ -68,9 +64,9 @@ static void update_presence(const char* state, const char* details, const char* 
 // lua wrappers
 extern "C" {
 	static int lua_update_presence(lua_State* L) {
-		const char* state = luaL_checkstring(L, 1);
-		const char* details = luaL_checkstring(L, 2);
-		const char* large_image = luaL_checkstring(L, 3);
+		const char* state = lua_tolstring(L, 1, NULL);
+		const char* details = lua_tolstring(L, 2, NULL);
+		const char* large_image = lua_tolstring(L, 3, NULL);
 		update_presence(state, details, large_image);
 		lua_pushnil(L);
 		return 1;

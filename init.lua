@@ -3,6 +3,7 @@ local core = require "core"
 local command = require "core.command"
 local common = require "core.common"
 local config = require "core.config"
+require "plugins.lite-xl-discord.discord"
 -- function replacements:
 local quit = core.quit
 local restart = core.restart
@@ -19,14 +20,6 @@ local function split_string(inputstr, sep)
 	return t
 end
 
-local function tell_discord_to_stop()
-	local cmd = "python3 " .. USERDIR ..
-					            "/plugins/lite-xl-discord/update_presence.py --state='no' --details='no' --die-now='yes' --pickle=" ..
-					            USERDIR .. "/plugins/lite-xl-discord/discord_data.pickle"
-	-- core.log("running command ".. command)
-	core.log("stopping discord rpc...")
-	system.exec(cmd)
-end
 
 local function update_status()
 	local filename = "unsaved file"
@@ -46,29 +39,23 @@ local function update_status()
 	local state = "in " .. dir
 	status.filename = filename
 	status.space = dir
-	local cmd = "python3 " .. USERDIR ..
-					            "/plugins/lite-xl-discord/update_presence.py --state='" ..
-					            state .. "' --details='" .. details ..
-					            "' --die-now='no' --pickle=" .. USERDIR ..
-					            "/plugins/lite-xl-discord/discord_data.pickle"
+	discord_update(state, details, "lite-xl")
 	system.exec(cmd)
 end
 
 local function start_rpc()
-	core.log("discord plugin: starting python script")
-	system.exec("python3 " .. USERDIR ..
-				            "/plugins/lite-xl-discord/presence.py --pickle=" .. USERDIR ..
-				            "/plugins/lite-xl-discord/discord_data.pickle --pidfile=" .. USERDIR .. "/plugins/lite-xl-discord/pidfile.pid")
+	core.log_quiet("discord plugin: starting RPC")
+	discord_init()
 	update_status()
 end
 
 core.quit = function(force)
-	tell_discord_to_stop()
+	discord_shutdown()
 	return quit(force)
 end
 
 core.restart = function()
-	tell_discord_to_stop()
+	discord_shutdown()
 	return restart()
 end
 
@@ -87,7 +74,11 @@ core.add_thread(function()
 end)
 
 command.add("core.docview",
-            {["discord-presence:stop-RPC"] = tell_discord_to_stop})
+	{["discord-presence:stop-RPC"] = function()
+		discord_shutdown()
+		core.log("Stopping RPC...")
+	end
+})
 command.add("core.docview", {["discord-presence:update-RPC"] = update_status})
 
 command.add("core.docview", {["discord-presence:start-RPC"] = start_rpc})

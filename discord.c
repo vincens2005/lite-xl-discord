@@ -12,7 +12,10 @@
 
 #include "discord_rpc.h"
 
-#include "include/lua/src/lua.hpp"
+extern "C" {
+	#include "lua.h"
+	#include "lauxlib.h"
+}
 
 static const char* APPLICATION_ID = "839231973289492541";
 static int64_t start_time;

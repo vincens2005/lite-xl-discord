@@ -13,7 +13,9 @@ local function load_discord_lib()
   local this_dir = fs.parent_directory(this_file):match("[@=](.*)")
   package.cpath =
     package.cpath .. path_sep .. this_dir .. dir_sep .. sub .. ".so"
-
+	global({["discord_init"] = "nil"})
+	global({["discord_update"] = "nil"})
+	global({["discord_shutdown"] = "nil"})
   return require "discord"
 end
 
@@ -54,7 +56,6 @@ local function update_status()
 	status.filename = filename
 	status.space = dir
 	discord_update(state, details, "lite-xl")
-	system.exec(cmd)
 end
 
 local function start_rpc()
@@ -93,7 +94,6 @@ command.add("core.docview",
 		core.log("Stopping RPC...")
 	end
 })
-command.add("core.docview", {["discord-presence:update-RPC"] = update_status})
 
 command.add("core.docview", {["discord-presence:start-RPC"] = start_rpc})
 

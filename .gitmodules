@@ -1,3 +1,6 @@
 [submodule "include/lua"]
 	path = include/lua
 	url = https://github.com/franko/lua.git
+[submodule "lib/lua"]
+	path = lib/lua
+	url = https://github.com/franko/lua.git

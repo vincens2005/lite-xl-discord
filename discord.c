@@ -3,13 +3,6 @@
 #include <string.h>
 #include <time.h>
 
-// sleep()
-#ifdef _WIN32
-#include <Windows.h>
-#else
-#include <unistd.h>
-#endif
-
 #include "discord_rpc.h"
 
 extern "C" {
@@ -101,18 +94,3 @@ extern "C" {
 		return 1;
 	}
 }
-/*
-int main(int argc, char* argv[]) {
-	init_discord();
-	
-	sleep(1);
-	
-	update_presence("this is a test", "for a C API", "lite-xl");
-	
-	sleep(10);
-	
-	Discord_Shutdown();
-	printf("\nall done\n");
-	return 0;
-}
-*/

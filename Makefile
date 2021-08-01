@@ -24,6 +24,7 @@ clean:
 
 install: build
 	@echo installing plugin to ${PREFIX}
+	@rm -rf ${PREFIX}/lite-xl-discord
 	@cp -r build ${PREFIX}/lite-xl-discord
 
 uninstall:

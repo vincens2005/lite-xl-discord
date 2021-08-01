@@ -10,7 +10,7 @@ build: lua
 	@cp -r include build
 	@cp lib/libdiscord-rpc.a build/lib
 
-	g++ -Lbuild/lib -Ibuild/include discord.c -shared -o build/discord.so -ldiscord-rpc -pthread -llua
+	g++ -Lbuild/lib -Ibuild/include discord.cpp -shared -o build/discord.so -ldiscord-rpc -pthread -llua
 	cp test.lua build/
 	cp init.lua build/
 	cp fsutil.lua build/

@@ -32,6 +32,7 @@ local discord = require_rel "discord"
 -- %w - workspace name
 -- %W - workspace path
 -- %.n where n is a number - nth function after the string
+-- %% DOES NOT NEED TO BE ESCAPED.
 local default_config = {
     application_id = "839231973289492541",
     editing_details = "Editing %f",

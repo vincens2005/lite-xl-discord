@@ -13,7 +13,6 @@ build: lua
 	g++ -Lbuild/lib -Ibuild/include discord.cpp -shared -o build/discord.so -ldiscord-rpc -pthread -llua
 	cp test.lua build/
 	cp init.lua build/
-	cp fsutil.lua build/
 	@rm -rf build/bin build/include build/lib build/man build/share
 
 clean:

@@ -1,18 +1,27 @@
-require "discord"
+local discord = require "discord"
 local function sleep(n)
   os.execute("sleep " .. tonumber(n))
 end
 
-discord_init()
+discord.init("839231973289492541")
 
 sleep(1)
 
-discord_update("test1", "test2", "lite-xl")
+discord.update({
+	state = "things",
+	details = "stuffs",
+	large_image = "lite-xl"
+})
 
 sleep(30)
 
-discord_update("AAHAHAHA", "jdsbsudysds", "lite-xl")
+discord.update({
+	state = "more thinfs",
+	details = "mr ",
+	large_image = "lite-xl"
+})
+
 
 sleep(20)
 
-discord_shutdown()
+discord.shutdown()

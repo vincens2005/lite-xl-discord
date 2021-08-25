@@ -1,3 +1,6 @@
 [submodule "lib/lua"]
 	path = lib/lua
 	url = https://github.com/franko/lua.git
+[submodule "lib/discord-rpc"]
+	path = lib/discord-rpc
+	url = https://github.com/vincens2005/discord-rpc.git

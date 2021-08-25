@@ -6,7 +6,20 @@ all: build
 lua:
 	@$(MAKE) -C lib/lua linux install MYCFLAGS=-fPIC INSTALL_TOP="$(PWD)/build"
 
-build: lua
+discord:
+	cd lib/discord-rpc/ && \
+	if [ ! -d "builds" ]; then \
+		mkdir builds; \
+	fi && \
+	cd builds && \
+	cmake .. -DCMAKE_INSTALL_PREFIX=. && \
+	cmake --build  . --config Release && \
+	make
+	
+	cp lib/discord-rpc/include/* include
+	cp lib/discord-rpc/builds/src/libdiscord-rpc.a lib
+
+build: lua discord
 	@cp -r include build
 	@cp lib/libdiscord-rpc.a build/lib
 
@@ -20,6 +33,7 @@ clean:
 	@rm -rf build
 
 	@$(MAKE) -C lib/lua clean
+	@rm -rf lib/discord-rpc/builds
 
 install: build
 	@echo installing plugin to ${PREFIX}

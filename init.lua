@@ -5,24 +5,13 @@ local common = require "core.common"
 local command = require "core.command"
 local RootView = require "core.rootview"
 local Object = require "core.object"
-
-local function require_rel(mod)
-    local cwd = debug.getinfo(1, "S").source:gsub("^@(.+)[\\/][^\\/]+$", "%1")
-    local old_cpath = package.cpath
-    package.cpath = cwd .. '/?.so;' .. old_cpath
-    local m = require(mod)
-    package.cpath = old_cpath
-
-    return m
-end
+local discord = require "plugins.lite-xl-discord.discord"
 
 local function merge(...)
     local r = {}
     for _, o in ipairs {...} do for k, v in pairs(o) do r[k] = v end end
     return r
 end
-
-local discord = require_rel "discord"
 
 -- some rules for placeholders:
 -- %f - filename

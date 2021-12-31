@@ -1,10 +1,11 @@
 PREFIX ?= ${HOME}/.config/lite-xl/plugins
 
 
-all: build
+all: clean build
 
 lua:
-	@$(MAKE) -C lib/lua linux install MYCFLAGS=-fPIC INSTALL_TOP="$(PWD)/build"
+	#@$(MAKE) -C lib/lua linux install MYCFLAGS=-fPIC INSTALL_TOP="$(PWD)/build"
+	echo "not building lua!!!"
 
 discord:
 	cd lib/discord-rpc/ && \
@@ -20,10 +21,13 @@ discord:
 	cp lib/discord-rpc/builds/src/libdiscord-rpc.a lib
 
 build: lua discord
-	@cp -r include build
-	@cp lib/libdiscord-rpc.a build/lib
+	@mkdir build
+	@mkdir build/include
+	@mkdir build/lib
+	@cp -r include build/
+	@cp lib/libdiscord-rpc.a build/lib/
 
-	g++ -fPIE -fPIC -Lbuild/lib -Ibuild/include discord.cpp -shared -o build/discord.so -ldiscord-rpc -pthread -llua
+	g++ -fPIE -fPIC -Wall -Lbuild/lib -Ibuild/include discord.cpp -shared -o build/discord.so -ldiscord-rpc -pthread -llua
 	cp test.lua build/
 	cp init.lua build/
 	@rm -rf build/bin build/include build/lib build/man build/share
@@ -35,7 +39,7 @@ clean:
 	@$(MAKE) -C lib/lua clean
 	@rm -rf lib/discord-rpc/builds
 
-install: build
+install: clean build
 	@echo installing plugin to ${PREFIX}
 	@rm -rf ${PREFIX}/lite-xl-discord
 	@cp -r build ${PREFIX}/lite-xl-discord

@@ -10,7 +10,7 @@ Inspired by [vscode rich presence](https://github.com/iCrawl/discord-vscode)
 ## actual installation
 clone this repo with `--recursive`
 run `make`,
-then (possibly with sudo) `make install`
+then `make install`
   
 # Contributing
   - Fork this repo

@@ -3,7 +3,11 @@
 #include <string.h>
 #include <time.h>
 
-#include "lua.hpp"
+//#include "lua.hpp"
+extern "C" {
+	#include "lite_xl_plugin_api.h"
+}
+
 #include "discord_rpc.h"
 
 static lua_State *L;
@@ -131,7 +135,8 @@ static const struct luaL_Reg lib[] = {
 };
 
 extern "C" {
-	int luaopen_discord(lua_State *state) {
+	int luaopen_lite_xl_discord(lua_State *state, void *XL) {
+		lite_xl_plugin_init(XL);
 		L = state;
 		luaL_newlib(L, lib);
 		return 1;

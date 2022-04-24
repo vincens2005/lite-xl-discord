@@ -6,6 +6,7 @@ Inspired by [vscode rich presence](https://github.com/iCrawl/discord-vscode)
 ## prerequisites:
   `make`, `gcc`, `cmake`
 	the clib branch currently only supports linux.
+	If you're not on linux, I recommend using [litepresence](https://github.com/TorchedSammy/litepresence)
 	
 ## actual installation
 clone this repo with `--recursive`

@@ -1,3 +1,9 @@
+# This plugin has been replaced by [litepresence](https://github.com/TorchedSammy/litepresence)
+
+## Unless you're on linux, and lite-xl > 2.0.5
+
+If you are, check out the [clib](https://github.com/vincens2005/lite-xl-discord/tree/clib) branch of this repo
+
 # discord rich presence for [lite-xl](https://github.com/franko/lite-xl)
 Inspired by [vscode rich presence](https://github.com/iCrawl/discord-vscode)
 

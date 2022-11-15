@@ -1,26 +1,16 @@
-# This plugin has been replaced by [litepresence](https://github.com/TorchedSammy/litepresence)
+# Lite XL Discord RPC
 
-## Unless you're on linux, and lite-xl > 2.0.5
-
-If you are, check out the [clib](https://github.com/vincens2005/lite-xl-discord/tree/clib) branch of this repo
+This project currently only supports Linux. If you're not on Linux, use [litepresence](https://github.com/TorchedSammy/litepresence)
 
 # discord rich presence for [lite-xl](https://github.com/franko/lite-xl)
 Inspired by [vscode rich presence](https://github.com/iCrawl/discord-vscode)
 
 ![screenshot of the plugin on discord](screenshot_1.png)
+
 # Installation
-## prerequisites:
+prerequisites:
   `make`, `gcc`, `cmake`
-	the clib branch currently only supports linux.
-	If you're not on linux, I recommend using [litepresence](https://github.com/TorchedSammy/litepresence)
-	
-## actual installation
-clone this repo with `--recursive`
-run `make`,
-then `make install`
-  
-# Contributing
-  - Fork this repo
-  - Mess with the code
-  - Make a PR
-  - or add issues, those are helpful too.
+
+1. clone this repo with `--recursive`
+2. `make`
+3. `make install`

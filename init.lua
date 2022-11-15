@@ -7,11 +7,7 @@ local RootView = require "core.rootview"
 local Object = require "core.object"
 local discord = require "plugins.lite-xl-discord.discord"
 
-local function merge(...)
-    local r = {}
-    for _, o in ipairs {...} do for k, v in pairs(o) do r[k] = v end end
-    return r
-end
+
 
 -- some rules for placeholders:
 -- %f - filename
@@ -34,7 +30,7 @@ local default_config = {
     reconnect = 5
 }
 
-local rpc_config = merge({}, default_config, config.discord_rpc or {})
+local rpc_config = common.merge(default_config, config.discord_rpc)
 
 
 local function replace_placeholders(data, placeholders)
@@ -119,7 +115,7 @@ function Discord:update()
         state = state,
         details = details,
         large_image = "lite-xl",
-        start_time = self.start
+        start_time = self.start_time
     })
 end
 
@@ -141,7 +137,7 @@ function Discord:start()
     self.running = true
     self.disconnect = nil
     self.last_activity = system.get_time()
-    self.start = rpc_config.elapsed_time and os.time() or nil
+    self.start_time = rpc_config.elapsed_time and os.time() or nil
 
     discord.on_event("ready", function()
         core.log("lite-xl-discord: connected to RPC!")
@@ -182,7 +178,7 @@ local rpc = Discord()
 local load_user_directory = core.load_user_directory
 function core.load_user_directory()
     load_user_directory()
-    rpc_config = merge({}, default_config, config.discord_rpc or {})
+    rpc_config = common.merge(default_config, config.discord_rpc)
 end
 
 local on_quit_project = core.on_quit_project

@@ -7,7 +7,55 @@ local RootView = require "core.rootview"
 local Object = require "core.object"
 local discord = require "plugins.lite-xl-discord.discord"
 
+-- stolen from https://github.com/TorchedSammy/litepresence/ Copyright (c) 2021 TorchedSammy
+local function makeTbl(tbl)
+	local t = {}
+	for exts, ftype in pairs(tbl) do
+		for ext in exts:gmatch('[^,]+') do
+			t[ext] = ftype
+		end
+	end
+	return t
+end
 
+-- extensions mapped to language names
+local extTbl = makeTbl {
+    ['asm'] = 'assembly',
+    ['c,h'] = 'c',
+    ['cpp,hpp'] = 'cpp',
+    ['cr'] = 'crystal',
+    ['cs'] = 'cs',
+    ['css'] = 'css',
+    ['dart'] = 'dart',
+    ['ejs,tmpl'] = 'ejs',
+    ['ex,exs'] = 'elixir',
+    ['gitignore,gitattributes,gitmodules'] = 'git',
+    ['go'] = 'go',
+    ['hs'] = 'haskell',
+    ['htm,html,mhtml'] = 'html',
+    ['png,jpg,jpeg,jfif,gif,webp'] = 'image',
+    ['java,class,properties'] = 'java',
+    ['js'] = 'javascript',
+    ['json'] = 'json',
+    ['kt'] = 'kotlin',
+    ['lua'] = 'lua',
+    ['md,markdown'] = 'markdown',
+    ['t'] = 'perl',
+    ['php'] = 'php',
+    ['py,pyx'] = 'python',
+    ['jsx,tsx'] = 'react',
+    ['rb'] = 'ruby',
+    ['rs'] = 'rust',
+    ['sh,bat'] = 'shell',
+    ['swift'] = 'swift',
+    ['txt,rst,rest'] = 'text',
+    ['toml'] = 'toml',
+    ['ts'] = 'typescript',
+    ['vue'] = 'vue',
+    ['xml,svg,yml,yaml,cfg,ini'] = 'xml',
+}
+
+-- thanks sammyette
 
 -- some rules for placeholders:
 -- %f - filename
@@ -19,7 +67,7 @@ local discord = require "plugins.lite-xl-discord.discord"
 -- %.n where n is a number - nth function after the string
 -- %% DOES NOT NEED TO BE ESCAPED.
 local default_config = {
-    application_id = "839231973289492541",
+    application_id = "749282810971291659",
     editing_details = "Editing %f",
     idle_details = "Idling",
     lower_editing_details = "in %w",
@@ -103,20 +151,32 @@ function Discord:update()
     self:update_placeholders()
 
     local details = replace_placeholders(
-    self.idle and rpc_config.idle_details or rpc_config.editing_details,
-    self.placeholders
+        self.idle and rpc_config.idle_details or rpc_config.editing_details,
+        self.placeholders
     )
     local state = replace_placeholders(
-    self.idle and rpc_config.lower_idle_details or rpc_config.lower_editing_details,
-    self.placeholders
+        self.idle and rpc_config.lower_idle_details or rpc_config.lower_editing_details,
+        self.placeholders
     )
 
-    discord.update({
+    local new_status = {
         state = state,
         details = details,
-        large_image = "lite-xl",
+        large_image = "litexl",
         start_time = self.start_time
-    })
+    }
+
+    local filetype = self.placeholders["f"] and self.placeholders["f"]:match('^.+(%..+)$')
+
+    if filetype then
+        local img = extTbl[filetype:sub(2)]
+        if img then
+            new_status.large_image = img
+            new_status.small_image = "litexl"
+        end
+    end
+
+    discord.update(new_status)
 end
 
 function Discord:verify_config()

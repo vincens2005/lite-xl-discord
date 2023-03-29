@@ -119,6 +119,7 @@ function Discord:new()
             else
                 if not self.error
                     and type(rpc_config.reconnect) == "number"
+                    and self.disconnect ~= nil
                     and time - self.disconnect >= rpc_config.reconnect then
                     self:start()
                 end
@@ -170,7 +171,7 @@ function Discord:update()
 
     if filetype then
         local img = extTbl[filetype:sub(2)]
-        if img then
+        if img and not self.idle then
             new_status.large_image = img
             new_status.small_image = "litexl"
         end
@@ -203,11 +204,11 @@ function Discord:start()
         core.log("lite-xl-discord: connected to RPC!")
         self:update()
     end)
-    discord.on_event("disconnect", function(_, err)
+    discord.on_event("disconnect", function(n, err)
         self.running = false
         self.disconnect = system.get_time()
         discord.shutdown()
-        core.error("lite-xl-discord: lost RPC connection: %s", err)
+        core.error("lite-xl-discord: lost RPC connection: %d %s", n, err)
     end)
 
     core.log("lite-xl-discord: Starting RPC")
@@ -256,8 +257,8 @@ end
 for _, fn in ipairs { "mouse_pressed", "mouse_released", "text_input" } do
     local oldfn = RootView["on_" .. fn]
     RootView["on_" .. fn] = function(...)
-        oldfn(...)
         rpc:bump()
+        return oldfn(...)
     end
 end
 

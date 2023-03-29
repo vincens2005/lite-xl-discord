@@ -1,0 +1,134 @@
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "linewrapping" from /usr/share/lite-xl/plugins in 0.3ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "autocomplete" from /usr/share/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "autoinsert" from /home/vincent/.config/lite-xl/plugins in 0.1ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "autoreload" from /usr/share/lite-xl/plugins in 0.1ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "autosave" from /home/vincent/.config/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "bracketmatch" from /home/vincent/.config/lite-xl/plugins in 0.2ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "colorpreview" from /home/vincent/.config/lite-xl/plugins in 0.1ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "cukmekerb_language_css" from /home/vincent/.config/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "cukmekerb_language_html" from /home/vincent/.config/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "cukmekerb_language_xml" from /home/vincent/.config/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "detectindent" from /usr/share/lite-xl/plugins in 0.2ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "formatter" from /home/vincent/.config/lite-xl/plugins in 0.1ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "gitdiff_highlight" from /home/vincent/.config/lite-xl/plugins in 0.5ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "gitstatus" from /home/vincent/.config/lite-xl/plugins in 8.6ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "language_c" from /usr/share/lite-xl/plugins in 0.1ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "language_cmake" from /home/vincent/.config/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "language_cpp" from /usr/share/lite-xl/plugins in 0.1ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "language_gdscript" from /home/vincent/.config/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "language_js" from /usr/share/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "language_lua" from /usr/share/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "language_md" from /usr/share/lite-xl/plugins in 0.5ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "language_python" from /usr/share/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "language_rust" from /home/vincent/.config/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "language_sh" from /home/vincent/.config/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "language_toml" from /home/vincent/.config/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "language_ts" from /home/vincent/.config/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "language_v" from /home/vincent/.config/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "lfautoinsert" from /home/vincent/.config/lite-xl/plugins in 0.1ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "lineguide" from /usr/share/lite-xl/plugins in 0.1ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "linter" from /home/vincent/.config/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "linter_flake8" from /home/vincent/.config/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "linter_gdlint" from /home/vincent/.config/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "linter_jshint" from /home/vincent/.config/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "linter_luacheck" from /home/vincent/.config/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "lintplus" from /home/vincent/.config/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] lite-xl-discord: Starting RPC at ...vincent/.config/lite-xl/plugins/lite-xl-discord/init.lua:214
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "lite-xl-discord" from /home/vincent/.config/lite-xl/plugins in 10.1ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "liveserver" from /home/vincent/.config/lite-xl/plugins in 0.1ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "lsp" from /home/vincent/.config/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "macro" from /usr/share/lite-xl/plugins in 0.1ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "memoryusage" from /home/vincent/.config/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "minimap" from /home/vincent/.config/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "projectsearch" from /usr/share/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "quote" from /usr/share/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "rainbowparen" from /home/vincent/.config/lite-xl/plugins in 0.1ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "reflow" from /usr/share/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "restoretabs" from /home/vincent/.config/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "scale" from /usr/share/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "selectionhighlight" from /home/vincent/.config/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "sort" from /home/vincent/.config/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "tabularize" from /usr/share/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "toolbarview" from /usr/share/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "treeview" from /usr/share/lite-xl/plugins in 0.0ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "trimwhitespace" from /usr/share/lite-xl/plugins in 0.1ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "uwuifier" from /home/vincent/.config/lite-xl/plugins in 0.4ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded plugin "workspace" from /usr/share/lite-xl/plugins in 0.1ms at /usr/share/lite-xl/core/init.lua:1015
+Wed Mar 29 14:42:13 2023 [INFO] Loaded all plugins in 22.9ms at /usr/share/lite-xl/core/init.lua:1028
+Wed Mar 29 14:42:13 2023 [INFO] Opening project "lite-xl-discord" from directory /home/vincent/Documents/code at /usr/share/lite-xl/core/init.lua:797
+Wed Mar 29 14:42:13 2023 [INFO] Opened doc "discord.cpp" at /usr/share/lite-xl/core/init.lua:1149
+Wed Mar 29 14:42:13 2023 [INFO] Opened doc "readme.md" at /usr/share/lite-xl/core/init.lua:1149
+Wed Mar 29 14:42:13 2023 [INFO] Linting init.lua with luacheck... at /home/vincent/.config/lite-xl/plugins/linter.lua:244
+Wed Mar 29 14:42:13 2023 [INFO] Opened doc "init.lua" at /usr/share/lite-xl/core/init.lua:1149
+Wed Mar 29 14:42:13 2023 [INFO] Linting /home/vincent/.config/lite-xl/init.lua with luacheck... at /home/vincent/.config/lite-xl/plugins/linter.lua:244
+Wed Mar 29 14:42:13 2023 [INFO] Opened doc "/home/vincent/.config/lite-xl/init.lua" at /usr/share/lite-xl/core/init.lua:1149
+Wed Mar 29 14:42:13 2023 [INFO] [LSP] starting clangd at /home/vincent/.config/lite-xl/plugins/lsp/init.lua:681
+Wed Mar 29 14:42:13 2023 [INFO] updating diff for /home/vincent/Documents/code/lite-xl-discord/discord.cpp at ...ncent/.config/lite-xl/plugins/gitdiff_highlight/init.lua:59
+Wed Mar 29 14:42:13 2023 [INFO] updating diff for /home/vincent/Documents/code/lite-xl-discord/readme.md at ...ncent/.config/lite-xl/plugins/gitdiff_highlight/init.lua:59
+Wed Mar 29 14:42:13 2023 [INFO] [LSP] starting lua-language-server at /home/vincent/.config/lite-xl/plugins/lsp/init.lua:681
+Wed Mar 29 14:42:13 2023 [INFO] updating diff for /home/vincent/Documents/code/lite-xl-discord/init.lua at ...ncent/.config/lite-xl/plugins/gitdiff_highlight/init.lua:59
+Wed Mar 29 14:42:13 2023 [INFO] updating diff for /home/vincent/Documents/code/custom-plugins/init.lua at ...ncent/.config/lite-xl/plugins/gitdiff_highlight/init.lua:59
+Wed Mar 29 14:42:13 2023 [INFO] updating diff for /home/vincent/Documents/code/lite-xl-discord/discord.cpp at ...ncent/.config/lite-xl/plugins/gitdiff_highlight/init.lua:59
+Wed Mar 29 14:42:13 2023 [INFO] updating diff for /home/vincent/Documents/code/lite-xl-discord/readme.md at ...ncent/.config/lite-xl/plugins/gitdiff_highlight/init.lua:59
+Wed Mar 29 14:42:13 2023 [INFO] updating diff for /home/vincent/Documents/code/lite-xl-discord/init.lua at ...ncent/.config/lite-xl/plugins/gitdiff_highlight/init.lua:59
+Wed Mar 29 14:42:13 2023 [INFO] updating diff for /home/vincent/Documents/code/custom-plugins/init.lua at ...ncent/.config/lite-xl/plugins/gitdiff_highlight/init.lua:59
+Wed Mar 29 14:42:13 2023 [INFO] Error linting init.lua with linter luacheck:  at /home/vincent/.config/lite-xl/plugins/linter.lua:247
+Wed Mar 29 14:42:13 2023 [INFO] Error linting /home/vincent/.config/lite-xl/init.lua with linter luacheck:  at /home/vincent/.config/lite-xl/plugins/linter.lua:247
+Wed Mar 29 14:42:13 2023 [INFO] file /home/vincent/Documents/code/custom-plugins/init.lua is not in a git repository at ...ncent/.config/lite-xl/plugins/gitdiff_highlight/init.lua:71
+Wed Mar 29 14:42:13 2023 [INFO] file /home/vincent/Documents/code/custom-plugins/init.lua is not in a git repository at ...ncent/.config/lite-xl/plugins/gitdiff_highlight/init.lua:71
+Wed Mar 29 14:42:14 2023 [INFO] lite-xl-discord: connected to RPC! at ...vincent/.config/lite-xl/plugins/lite-xl-discord/init.lua:204
+Wed Mar 29 14:42:15 2023 [INFO] [LSP/clangd]: Connected to clangd clangd version 15.0.7 linux x86_64-pc-linux-gnu
+ at /home/vincent/.config/lite-xl/plugins/lsp/init.lua:690
+Wed Mar 29 14:42:15 2023 [INFO] [clangd] Initialized at /home/vincent/.config/lite-xl/plugins/lsp/init.lua:273
+Wed Mar 29 14:42:15 2023 [INFO] [lua-language-server] Log path: file:///tmp/lua-language-server.shd9/log/file_home_vincent_Documents_code_lite-xl-discord.log at /home/vincent/.config/lite-xl/plugins/lsp/init.lua:273
+Wed Mar 29 14:42:15 2023 [INFO] [LSP/lua-language-server]: Connected to sumneko.lua (unknown version)
+ at /home/vincent/.config/lite-xl/plugins/lsp/init.lua:690
+Wed Mar 29 14:42:15 2023 [INFO] [lua-language-server] Initialized at /home/vincent/.config/lite-xl/plugins/lsp/init.lua:273
+Wed Mar 29 14:42:15 2023 [INFO] [LSP/lua-language-server]: Asking for 'Lua' config but not set
+ at /home/vincent/.config/lite-xl/plugins/lsp/init.lua:690
+Wed Mar 29 14:42:15 2023 [INFO] [LSP/lua-language-server]: Asking for 'files.associations' config but not set
+ at /home/vincent/.config/lite-xl/plugins/lsp/init.lua:690
+Wed Mar 29 14:42:15 2023 [INFO] [LSP/lua-language-server]: Asking for 'files.exclude' config but not set
+ at /home/vincent/.config/lite-xl/plugins/lsp/init.lua:690
+Wed Mar 29 14:42:15 2023 [INFO] [LSP/lua-language-server]: Asking for 'editor.semanticHighlighting.enabled' config but not set
+ at /home/vincent/.config/lite-xl/plugins/lsp/init.lua:690
+Wed Mar 29 14:42:15 2023 [INFO] [LSP/lua-language-server]: Asking for 'editor.acceptSuggestionOnEnter' config but not set
+ at /home/vincent/.config/lite-xl/plugins/lsp/init.lua:690
+Wed Mar 29 14:42:19 2023 [INFO] [LSP/lua-language-server]: Asking for 'Lua' config but not set
+ at /home/vincent/.config/lite-xl/plugins/lsp/init.lua:690
+Wed Mar 29 14:42:19 2023 [INFO] [LSP/lua-language-server]: Asking for 'files.associations' config but not set
+ at /home/vincent/.config/lite-xl/plugins/lsp/init.lua:690
+Wed Mar 29 14:42:19 2023 [INFO] [LSP/lua-language-server]: Asking for 'files.exclude' config but not set
+ at /home/vincent/.config/lite-xl/plugins/lsp/init.lua:690
+Wed Mar 29 14:42:19 2023 [INFO] [LSP/lua-language-server]: Asking for 'editor.semanticHighlighting.enabled' config but not set
+ at /home/vincent/.config/lite-xl/plugins/lsp/init.lua:690
+Wed Mar 29 14:42:19 2023 [INFO] [LSP/lua-language-server]: Asking for 'editor.acceptSuggestionOnEnter' config but not set
+ at /home/vincent/.config/lite-xl/plugins/lsp/init.lua:690
+Wed Mar 29 14:42:43 2023 [ERROR] lite-xl-discord: lost RPC connection: 0  at ...vincent/.config/lite-xl/plugins/lite-xl-discord/init.lua:211
+
+stack traceback:
+...vincent/.config/lite-xl/plugins/lite-xl-discord/init.lua:211: in function <...vincent/.config/lite-xl/plugins/lite-xl-discord/init.lua:207>
+[C]: in upvalue 'run_threads'
+/usr/share/lite-xl/core/init.lua:1387: in function 'core.run'
+(...tail calls...)
+[string "local core..."]:9: in function <[string "local core..."]:2>
+[C]: in function 'xpcall'
+[string "local core..."]:2: in main chunk
+
+Wed Mar 29 14:42:48 2023 [INFO] lite-xl-discord: Starting RPC at ...vincent/.config/lite-xl/plugins/lite-xl-discord/init.lua:214
+Wed Mar 29 14:42:51 2023 [INFO] lite-xl-discord: connected to RPC! at ...vincent/.config/lite-xl/plugins/lite-xl-discord/init.lua:204
+Wed Mar 29 14:43:18 2023 [ERROR] lite-xl-discord: lost RPC connection: 0  at ...vincent/.config/lite-xl/plugins/lite-xl-discord/init.lua:211
+
+stack traceback:
+...vincent/.config/lite-xl/plugins/lite-xl-discord/init.lua:211: in function <...vincent/.config/lite-xl/plugins/lite-xl-discord/init.lua:207>
+[C]: in upvalue 'run_threads'
+/usr/share/lite-xl/core/init.lua:1387: in function 'core.run'
+(...tail calls...)
+[string "local core..."]:9: in function <[string "local core..."]:2>
+[C]: in function 'xpcall'
+[string "local core..."]:2: in main chunk
+
+Wed Mar 29 14:43:23 2023 [INFO] lite-xl-discord: Starting RPC at ...vincent/.config/lite-xl/plugins/lite-xl-discord/init.lua:214
+Wed Mar 29 14:43:26 2023 [INFO] lite-xl-discord: connected to RPC! at ...vincent/.config/lite-xl/plugins/lite-xl-discord/init.lua:204
+Wed Mar 29 14:43:37 2023 [INFO] WE ARE NO LONGER IDLE at ...vincent/.config/lite-xl/plugins/lite-xl-discord/init.lua:226
+Wed Mar 29 14:43:55 2023 [INFO] Opened doc "logs.txt" at /usr/share/lite-xl/core/init.lua:1149
